@@ -1,10 +1,10 @@
-package backend
+package com.school.backend
 
 import io.micronaut.runtime.Micronaut.*
 fun main(args: Array<String>) {
 	build()
 	    .args(*args)
-		.packages("backend")
+		.packages("com.school.backend")
 		.start()
 }
 

@@ -7,7 +7,7 @@ plugins {
 }
 
 version = "0.1"
-group = "backend"
+group = "com.school.backend"
 
 val kotlinVersion=project.properties.get("kotlinVersion")
 repositories {
@@ -25,14 +25,16 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
+    implementation("io.micronaut.flyway:micronaut-flyway")
+    implementation("org.postgresql:postgresql:42.3.2")
 
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
-
+    runtimeOnly("io.micronaut.sql:micronaut-jdbc-hikari")
 }
 
 
 application {
-    mainClass.set("backend.ApplicationKt")
+    mainClass.set("com.school.backend.ApplicationKt")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("11")
@@ -56,8 +58,6 @@ micronaut {
     testRuntime("kotest")
     processing {
         incremental(true)
-        annotations("backend.*")
+        annotations("com.school.backend.*")
     }
 }
-
-

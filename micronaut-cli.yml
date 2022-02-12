@@ -1,5 +1,5 @@
 applicationType: default
-defaultPackage: backend
+defaultPackage: com.backend.school
 testFramework: kotest
 sourceLanguage: kotlin
 buildTool: gradle_kotlin

@@ -7,6 +7,6 @@ import io.kotest.core.spec.style.StringSpec
 class BackendTest(private val application: EmbeddedApplication<*>): StringSpec({
 
     "test the server is running" {
-//        assert(application.isRunning)
+        assert(application.isRunning)
     }
 })

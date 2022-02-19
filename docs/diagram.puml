@@ -1,0 +1,100 @@
+@startuml
+'https://plantuml.com/class-diagram
+/'
+ Define classes
+'/
+
+class Course {
+    UUID id
+    String name
+}
+
+class Score {
+    UUID id
+    coursePK UUID
+    studentPK UUID
+    date DateTime
+}
+
+abstract class Person {
+    UUID id
+    String firstName
+    String lastName
+    String gender
+    DateTime dayOfBirth
+    String Nationality
+    String Email
+    String Tel
+}
+
+class Student {
+
+}
+
+class Parent {
+    String grade
+    DateTime dayOfAdmission
+    Boolean isStaff
+}
+
+class Classroom {
+    UUID id
+    String name
+    String grade
+    String level
+}
+
+class  ParentClass {
+    id UUID
+    parentPK UUID
+    classPK UUID
+    DateTime dateOfIntervention
+}
+
+class StudentClass {
+    id UUID
+    studentPK UUID
+    classPK UUID
+     enterDate
+}
+
+/'
+Define notes
+'/
+
+/'note right of Class::grade
+grade is the equivalent
+of `serie` in english
+end note
+
+note right of Parent
+This Method is tend to encapsulate
+either a parent or an instructor
+end note
+
+note right of ParentClass::dateOfIntervention
+dateOfIntervention is the date at which the instructor
+begin instructing the class
+end note
+'/
+
+/'
+Defines Relations
+'/
+
+' used to merge inheritance arrows header.
+skinparam groupInheritance 2
+Person <|--  Student
+Person <|--  Parent
+
+Student "1..*" - "0..*" Parent
+
+Student "1..*" - "1..*" Classroom
+(Student, Classroom) .. StudentClass
+
+Parent "0..*" - "0..*" Classroom
+(Parent, Classroom) .. ParentClass
+
+Student "0..*" - "0..*" Course
+(Student, Course) .. Score
+@enduml

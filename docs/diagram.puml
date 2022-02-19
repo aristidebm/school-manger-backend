@@ -1,5 +1,20 @@
 @startuml
 'https://plantuml.com/class-diagram
+' This is also a great resource https://plantuml-documentation.readthedocs.io/en/latest/formatting/all-skin-params.html
+
+'Check this link for more configs https://plantuml.com/commons
+scale 1.5
+
+'Check this link for more themes https://plantuml.com/theme
+!theme reddress-lightorange
+' config
+skinparam CaptionFontSize 11
+skinparam linetype polyline
+skinparam linetype ortho
+skinparam groupInheritance 2
+
+caption School management diagram
+
 /'
  Define classes
 '/
@@ -83,7 +98,6 @@ Defines Relations
 '/
 
 ' used to merge inheritance arrows header.
-skinparam groupInheritance 2
 Person <|--  Student
 Person <|--  Parent
 
@@ -92,9 +106,9 @@ Student "1..*" - "0..*" Parent
 Student "1..*" - "1..*" Classroom
 (Student, Classroom) .. StudentClass
 
-Parent "0..*" - "0..*" Classroom
+Classroom "0..*" -left- "0..*" Parent
 (Parent, Classroom) .. ParentClass
 
-Student "0..*" - "0..*" Course
+Course "0..*" -left- "0..*" Student
 (Student, Course) .. Score
 @enduml

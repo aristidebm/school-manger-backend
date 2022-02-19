@@ -28,6 +28,7 @@ class Score {
     UUID id
     coursePK UUID
     studentPK UUID
+    Integer weight
     date DateTime
 }
 
@@ -77,7 +78,7 @@ class StudentClass {
 Define notes
 '/
 
-/'note right of Class::grade
+note right of Class::grade
 grade is the equivalent
 of `serie` in english
 end note
@@ -91,7 +92,11 @@ note right of ParentClass::dateOfIntervention
 dateOfIntervention is the date at which the instructor
 begin instructing the class
 end note
-'/
+
+note left of Score::weight
+It the correspondance of
+<coeffcient> in mathetiques
+end note
 
 /'
 Defines Relations

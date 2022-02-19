@@ -12,7 +12,7 @@ skinparam CaptionFontSize 11
 skinparam linetype polyline
 skinparam linetype ortho
 skinparam groupInheritance 2
-
+skinparam Shadowing true
 caption School management diagram
 
 /'

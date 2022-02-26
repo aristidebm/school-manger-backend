@@ -6,6 +6,7 @@
 scale 1.5
 
 'Check this link for more themes https://plantuml.com/theme
+'Check this link for doc https://crashedmind.github.io/PlantUMLHitchhikersGuide/
 !theme reddress-lightorange
 ' config
 skinparam CaptionFontSize 11
@@ -78,7 +79,7 @@ class StudentClass {
 Define notes
 '/
 
-note right of Class::grade
+note right of Classroom::grade
 grade is the equivalent
 of `serie` in english
 end note
@@ -103,8 +104,8 @@ Defines Relations
 '/
 
 ' used to merge inheritance arrows header.
-Person <|--  Student
 Person <|--  Parent
+Person <|-[norank]left-  Student
 
 Student "1..*" - "0..*" Parent
 
